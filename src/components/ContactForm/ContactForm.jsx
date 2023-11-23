@@ -6,7 +6,7 @@ import { selectContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setNumber] = useState('');
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ export const ContactForm = () => {
       return false;
     }
 
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({ name, phone }));
     setName('');
     setNumber('');
   };
@@ -40,7 +40,7 @@ export const ContactForm = () => {
       <input
         type="tel"
         name="number"
-        value={number}
+        value={phone}
         id="inputNumber"
         required
         onChange={e => setNumber(e.target.value)}
